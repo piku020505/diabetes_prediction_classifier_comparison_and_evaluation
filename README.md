@@ -1,56 +1,82 @@
- Diabetes Prediction — Classifier Comparison and Evaluation
- Overview
+Diabetes Prediction: Classifier Comparison and Evaluation
+Overview
 
-This project focuses on comparing two popular machine learning algorithms — K-Nearest Neighbors (KNN) and Support Vector Machine (SVM) — for predicting diabetes using real-world datasets.
-It also extends the comparison to the Titanic dataset, highlighting how preprocessing and feature scaling impact model performance.
+This project presents a comparative analysis of two supervised machine learning algorithms — K-Nearest Neighbors (KNN) and Support Vector Machine (SVM) — for the prediction of diabetes using the Pima Indians Diabetes Dataset.
+The same methodology is also extended to the Titanic Dataset to analyze algorithmic performance across different domains.
 
- Objectives
+The primary objective is to evaluate the performance of these algorithms using accuracy, precision, recall, and F1-score, and determine the most suitable model for predictive classification tasks.
 
-Implement and compare KNN and SVM models on medical and non-medical datasets.
+Objectives
 
-Evaluate model performance using metrics like accuracy, precision, recall, and F1-score.
+To implement and compare KNN and SVM models.
 
-Understand the effects of data preprocessing, normalization, and encoding.
+To evaluate each model using performance metrics such as accuracy, precision, recall, and F1-score.
 
-Identify which model generalizes better across datasets.
+To understand the impact of data preprocessing (handling missing values, normalization, encoding) on model accuracy.
 
- Methodology
+To determine the algorithm better suited for structured, real-world datasets.
 
-Data Loading & Exploration – Inspection of dataset shape, datatypes, and statistical summaries using pandas.
-
-Data Cleaning – Handling missing and biologically implausible values (like zero BMI or glucose).
-
-Feature Scaling – Applying StandardScaler to normalize numerical attributes.
-
-Model Training – Training KNN and SVM models using scikit-learn.
-
-Model Evaluation – Evaluating with accuracy, precision, recall, F1-score, and confusion matrices.
-
-Comparison – Analyzing which classifier performs better on each dataset.
-
- Results Summary
-Dataset	Model	Accuracy	Best Performing
-Diabetes	KNN – 70.13%	SVM – 72.08%	SVM
-Titanic	KNN – 65.36%	SVM – 68.15%	SVM
-
- SVM consistently outperformed KNN in both datasets, offering better accuracy and balanced F1-scores.
-
- Tools & Libraries
+Tools and Libraries
 
 Python
 
-Pandas
+Pandas – For data loading, cleaning, and manipulation
 
-Scikit-learn
+Scikit-learn (sklearn) – For data preprocessing, model implementation, and evaluation
 
-Matplotlib
+Matplotlib and Seaborn – For visualization and graphical analysis
 
-Seaborn
+Methodology
 
- Key Insights
+Data Loading and Exploration
 
-SVM provides better generalization in both linear and non-linear datasets.
+Imported dataset into Pandas DataFrame.
 
-KNN, while intuitive, is sensitive to scaling and struggles with high-dimensional data.
+Performed initial exploration using .info(), .describe(), and summary statistics.
 
-Proper data preprocessing significantly improves model performance.
+Data Preprocessing
+
+Identified and replaced biologically implausible zero values with mean imputation.
+
+Encoded categorical variables where necessary.
+
+Applied StandardScaler to normalize numerical features.
+
+Data Splitting
+
+Split data into 80% training and 20% testing sets using train_test_split().
+
+Model Development
+
+Implemented SVM using SVC() and KNN using KNeighborsClassifier() from Scikit-learn.
+
+Trained both models on the preprocessed training data.
+
+Model Evaluation
+
+Evaluated models using accuracy, precision, recall, and F1-score.
+
+Generated confusion matrices to analyze classification performance.
+
+Results
+Diabetes Dataset
+Model	Accuracy	Key Observations
+KNN	70.13%	Struggled slightly with recall for diabetic patients.
+SVM	72.08%	Achieved higher accuracy and balanced performance across metrics.
+Titanic Dataset
+Model	Accuracy	Key Observations
+KNN	65.36%	Performed moderately with lower recall.
+SVM	68.15%	Outperformed KNN in accuracy and recall balance.
+
+Overall Observation:
+Across both datasets, SVM outperformed KNN, providing better generalization and stability in performance metrics.
+
+Conclusion
+
+Support Vector Machine (SVM) achieved higher accuracy compared to K-Nearest Neighbors (KNN).
+
+Data preprocessing (imputation and scaling) played a vital role in improving model results.
+
+Both algorithms showed limitations in recall for positive classes, indicating potential for further optimization.
+
+SVM is more suitable for high-dimensional and linearly/non-linearly separable datasets.
